@@ -1,0 +1,136 @@
+{
+  "info": {
+    "name": "Charging Stations API",
+    "_postman_id": "12345678-abcd-efgh-ijkl-1234567890ab",
+    "description": "Postman collection for Charging Stations backend API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"testuser\",\n  \"email\": \"testuser@example.com\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/register",
+          "host": ["{{base_url}}"],
+          "path": ["api", "auth", "register"]
+        }
+      }
+    },
+    {
+      "name": "Login User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/login",
+          "host": ["{{base_url}}"],
+          "path": ["api", "auth", "login"]
+        }
+      }
+    },
+    {
+      "name": "Get Stations",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/stations",
+          "host": ["{{base_url}}"],
+          "path": ["api", "stations"]
+        }
+      }
+    },
+    {
+      "name": "Create Station",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"New Station\",\n  \"location\": \"123 Main St\",\n  \"capacity\": 10\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/stations",
+          "host": ["{{base_url}}"],
+          "path": ["api", "stations"]
+        }
+      }
+    },
+    {
+      "name": "Update Station",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Updated Station\",\n  \"location\": \"456 Elm St\",\n  \"capacity\": 15\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/stations/{{station_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "stations", "{{station_id}}"]
+        }
+      }
+    },
+    {
+      "name": "Delete Station",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/stations/{{station_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "stations", "{{station_id}}"]
+        }
+      }
+    }
+  ]
+}
